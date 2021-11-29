@@ -9,8 +9,13 @@
 
 body {
   font-family: Halvetica, serif;
-  background-color: #3B3A39;
+  background-color: black;
   color: #fddde6;
+}
+
+::selection {
+  color: white;
+  background-color: #ff70b8;
 }
 
 h1,
