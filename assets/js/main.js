@@ -1,20 +1,16 @@
 const firstPageId = 'hero';
 const headerElement = document.getElementById('header');
+const select = (el, all = false) => {
+  el = el.trim()
+  if (all) {
+    return [...document.querySelectorAll(el)]
+  } else {
+    return document.querySelector(el)
+  }
+}
 
 (function() {
   "use strict";
-
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
 
   /**
    * Easy event listener function
@@ -50,9 +46,9 @@ const headerElement = document.getElementById('header');
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
         navbarlink.classList.add('active')
         if (navbarlink.href.includes(firstPageId))
-          headerElement.style.opacity = 0
+          headerElement.style.left = '-300px'
         else
-          headerElement.style.opacity = 1
+          headerElement.style.left = 0
       } else {
         navbarlink.classList.remove('active')
       }
@@ -179,3 +175,11 @@ const headerElement = document.getElementById('header');
   new PureCounter();
 
 })()
+
+const scrollToTop = () => {
+  let elementPos = select('#hero').offsetTop
+  window.scrollTo({
+    top: elementPos,
+    behavior: 'smooth'
+  })
+}

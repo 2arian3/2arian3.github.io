@@ -72,6 +72,7 @@ h6 {
   height: 40px;
   border-radius: 50px;
   transition: all 0.4s;
+  cursor: pointer;
 }
 
 .back-to-top:hover {
@@ -104,7 +105,7 @@ h6 {
   padding: 0 15px;
   background-color: var(--color-secondary);
   overflow-y: auto;
-  opacity: 0;
+  left: -300px;
 }
 
 .profile {
