@@ -564,14 +564,6 @@ section {
   }
 }
 
-@media (max-width: 1199px) {
-  #footer {
-    position: static;
-    width: auto;
-    padding-right: 20px 15px;
-  }
-}
-
 * {
   scrollbar-color: rgba(0, 0, 0, 0.9) rgba(0, 0, 0, 0.1);
   scrollbar-width: thin;

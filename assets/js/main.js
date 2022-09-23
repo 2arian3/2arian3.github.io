@@ -45,10 +45,12 @@ const select = (el, all = false) => {
       if (!section) return
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
         navbarlink.classList.add('active')
-        if (navbarlink.href.includes(firstPageId))
-          headerElement.style.left = '-300px'
-        else
-          headerElement.style.left = 0
+        if (window.document.body.clientWidth >= 1200) {
+          if (navbarlink.href.includes(firstPageId))
+            headerElement.style.left = '-300px'
+          else
+            headerElement.style.left = 0
+        }
       } else {
         navbarlink.classList.remove('active')
       }
@@ -88,14 +90,17 @@ const select = (el, all = false) => {
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    headerElement.style.opacity = 1
+    if (select('body').classList.contains('mobile-nav-active'))
+      headerElement.style.left = '-300px'
+    else
+      headerElement.style.left = 0
     select('body').classList.toggle('mobile-nav-active')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scrool with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -107,6 +112,7 @@ const select = (el, all = false) => {
         let navbarToggle = select('.mobile-nav-toggle')
         navbarToggle.classList.toggle('bi-list')
         navbarToggle.classList.toggle('bi-x')
+        headerElement.style.left = '-300px'
       }
       scrollto(this.hash)
     }
@@ -177,7 +183,7 @@ const select = (el, all = false) => {
 })()
 
 const scrollToTop = () => {
-  let elementPos = select('#hero').offsetTop
+  let elementPos = select('#' + firstPageId).offsetTop
   window.scrollTo({
     top: elementPos,
     behavior: 'smooth'
