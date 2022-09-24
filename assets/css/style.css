@@ -73,6 +73,7 @@ h6 {
   border-radius: 50px;
   transition: all 0.4s;
   cursor: pointer;
+  color: var(--color-primary);
 }
 
 .back-to-top:hover {
@@ -231,7 +232,7 @@ h6 {
   transition: all 0.4s;
   outline: none !important;
   background-color: var(--color-tertiary);
-  color: #fff;
+  color: var(--color-primary);
   width: 40px;
   height: 40px;
   display: inline-flex;
