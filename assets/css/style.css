@@ -243,6 +243,10 @@ h6 {
   cursor: pointer;
 }
 
+.bi-arrow-up-short {
+  color: black !important;
+}
+
 .mobile-nav-active {
   overflow: hidden;
 }
