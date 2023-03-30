@@ -489,6 +489,7 @@ section {
   height: 10px;
   transition: 0.9s;
   background-color: var(--color-tertiary);
+  box-shadow: 0 0 5px var(--color-tertiary);
   border-radius: 3px;
 }
 
