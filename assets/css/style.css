@@ -1,7 +1,7 @@
 :root {
   --color-primary: black;
   --color-secondary: #080808;
-  --color-secondary-light: #08080876;
+  --color-secondary-light: #22222275;
   --color-tertiary: #37ff14;
   --color-tertiary-bright: #37ff14e6;
 }
@@ -471,6 +471,7 @@ section {
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   color: var(--color-tertiary);
+  text-shadow: 0 0 2px var(--color-tertiary);
 }
 
 .skills .progress .skill .val {
@@ -480,6 +481,7 @@ section {
 
 .skills .progress-bar-wrap {
   background: var(--color-secondary-light);
+  box-shadow: 0 0 5px var(--color-secondary-light);
   height: 10px;
   border-radius: 3px;
 }

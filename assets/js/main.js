@@ -99,6 +99,20 @@ const select = (el, all = false) => {
     this.classList.toggle('bi-x')
   })
 
+  function HideHeader(e) {
+    e.stopPropagation()
+    if (select('body').classList.contains('mobile-nav-active')) {
+      select('#header').style.left = '-300px'
+      select('.mobile-toggle').classList.toggle('bi-list')
+      select('.mobile-toggle').classList.toggle('bi-x')
+      select('body').classList.toggle('mobile-nav-active')
+    }
+  }
+
+  on('click', '#hero', e => HideHeader(e))
+
+  on('click', '#main', e => HideHeader(e))
+
   /**
    * Scrool with offset on links with a class name .scrollto
    */
