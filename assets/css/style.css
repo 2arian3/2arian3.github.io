@@ -1,15 +1,16 @@
 :root {
-  --color-primary: black;
-  --color-secondary: #080808;
-  --color-secondary-light: #22222275;
-  --color-tertiary: #37ff14;
-  --color-tertiary-bright: #37ff14e6;
+  --color-primary: white;
+  --color-secondary: #f7f7f7;
+  --color-secondary-light: #f7f7f78d;
+  --color-tertiary: #e11717;
+  --color-tertiary-bright: #e117179e;
+  --color-text: #272829;
 }
 
 body {
-  background-color: black;
-  font-family: "Courier New", sans-serif;
-  color: #272829;
+  background-color: white;
+  font-family: "Poppins", sans-serif !important;
+  color: var(--color-text);
 }
 
 .centralize {
@@ -19,12 +20,12 @@ body {
 }
 
 .shining-text {
-  text-shadow: 0 0 10px var(--color-tertiary);
+  text-shadow: 0 0 2px var(--color-tertiary);
 }
 
 ::selection {
   background: var(--color-tertiary);
-  color: black;
+  color: var(--color-primary);
 }
 
 a {
@@ -39,7 +40,7 @@ a:hover {
 
 a,
 header {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 p,
@@ -49,12 +50,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Courier New", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
+  text-align: justify;
 }
 
 #main {
   background-color: var(--color-primary) !important;
-  color: white;
+  color: var(--color-text);
 }
 
 /*--------------------------------------------------------------
@@ -73,7 +75,7 @@ h6 {
   border-radius: 50px;
   transition: all 0.4s;
   cursor: pointer;
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
 }
 
 .back-to-top:hover {
@@ -117,7 +119,7 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 8px solid #2c2f3f;
+  border: 8px solid var(--color-tertiary-bright);
 }
 
 #header .profile h1 {
@@ -130,15 +132,15 @@ h6 {
 
 #header .profile h1 a,
 #header .profile h1 a:hover {
-  color: #fff;
+  color: var(--color-tertiary-bright);
   text-decoration: none;
 }
 
 #header .profile .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #212431;
-  color: #fff;
+  background: var(--color-tertiary-bright);
+  color: var(--color-primary);
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -151,7 +153,7 @@ h6 {
 
 #header .profile .social-links a:hover {
   background: var(--color-tertiary);
-  color: black;
+  color: var(--color-secondary);
   text-decoration: none;
 }
 
@@ -211,7 +213,7 @@ h6 {
 .nav-menu .active:focus,
 .nav-menu li:hover>a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 
 .nav-menu a:hover i,
@@ -244,7 +246,7 @@ h6 {
 }
 
 .bi-arrow-up-short {
-  color: black !important;
+  color: var(--color-primary);
 }
 
 .mobile-nav-active {
@@ -266,7 +268,7 @@ h6 {
 
 #hero:before {
   content: "";
-  background: black;
+  background: var(--color-primary);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -291,21 +293,21 @@ h6 {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color: var(--color-tertiary);
 }
 
 #hero p {
-  color: #fff;
+  color: var(--color-tertiary);
   margin-bottom: 50px;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
 
 #hero p span {
-  color: #fff;
+  color: var(--color-tertiary);
   padding-bottom: 4px;
   letter-spacing: 1px;
-  border-bottom: 3px solid var(--color-tertiary);
+  border-bottom: 0.4px solid var(--color-tertiary-bright);
 }
 
 @media (min-width: 1024px) {
@@ -436,7 +438,7 @@ section {
   margin: 0 0 0 60px;
   font-family: "Raleway", sans-serif;
   font-size: 14px;
-  color: white;
+  color: var(--color-tertiary);
 }
 
 .facts .count-box a {
@@ -471,7 +473,6 @@ section {
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   color: var(--color-tertiary);
-  text-shadow: 0 0 2px var(--color-tertiary);
 }
 
 .skills .progress .skill .val {
@@ -481,7 +482,7 @@ section {
 
 .skills .progress-bar-wrap {
   background: var(--color-secondary-light);
-  box-shadow: 0 0 5px var(--color-secondary-light);
+  box-shadow: 0 0 3px var(--color-secondary-light);
   height: 10px;
   border-radius: 3px;
 }
@@ -491,7 +492,7 @@ section {
   height: 10px;
   transition: 0.9s;
   background-color: var(--color-tertiary);
-  box-shadow: 0 0 5px var(--color-tertiary);
+  box-shadow: 0 0 3px var(--color-tertiary);
   border-radius: 3px;
 }
 
@@ -594,7 +595,7 @@ section {
 *::-webkit-scrollbar {
   width: 8px;
   height: 12px;
-  background-color: rgba(0, 0, 0, 1) !important;
+  background-color: var(--color-secondary) !important;
 }
 
 *::-webkit-scrollbar-thumb {
