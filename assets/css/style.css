@@ -4,7 +4,7 @@
   --color-secondary-light: #f7f7f78d;
   --color-tertiary: #e11717;
   --color-tertiary-bright: #e117179e;
-  --color-text: #272829;
+  --color-text: #4f5253;
 }
 
 body {
@@ -20,7 +20,8 @@ body {
 }
 
 .shining-text {
-  text-shadow: 0 0 2px var(--color-tertiary);
+  color: var(--color-primary);
+  text-shadow: 0 0 4px var(--color-tertiary);
 }
 
 ::selection {
@@ -213,7 +214,8 @@ h6 {
 .nav-menu .active:focus,
 .nav-menu li:hover>a {
   text-decoration: none;
-  color: black;
+  color: var(--color-text);
+  opacity: 0.8;
 }
 
 .nav-menu a:hover i,
@@ -383,10 +385,14 @@ section {
   padding: 0;
 }
 
+.show-list {
+  margin-top: 15px;
+  margin-inline-start: 30px;
+  list-style: inside !important;
+}
+
 .about .content ul li {
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
 }
 
 .about .content ul strong {
@@ -527,12 +533,27 @@ section {
 .resume .resume-item h5 {
   font-size: 16px;
   background: var(--color-tertiary-bright);
-  color: black;
+  color: var(--color-primary);
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
   border-radius: 3px;
+}
+
+.resume .resume-item .institution {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.resume .resume-item .institution-icon {
+  width: 100px;
+  margin: 0 5px;
+  height: auto;
 }
 
 .resume .resume-item ul {
