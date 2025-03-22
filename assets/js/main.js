@@ -196,6 +196,22 @@ const select = (el, all = false) => {
 
 })()
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  const today = new Date();
+  const birthDate = new Date('2000-07-09');
+  
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const month = today.getMonth();
+
+  if (month < birthDate.getMonth() || (month === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  document.getElementById('age').innerText = age;
+});
+
+
 const scrollToTop = () => {
   let elementPos = select('#' + firstPageId).offsetTop
   window.scrollTo({
