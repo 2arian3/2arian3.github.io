@@ -10,8 +10,22 @@
   <meta content="Arian Boukani" name="author">
   <meta content="Arian Boukani, software engineer, backend engineer, full-stack developer, serverless, distributed systems, OptiServe, PreNeT, CAPE, York University, Toronto, bookani, bokani, arian, boukani, aryan, آریان, بوکانی, آریا, اریان, اریا" name="keywords">
   <meta content="index, follow" name="robots">
-  <meta content="#e31837" name="theme-color">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://2arian3.github.io/">
+
+  <!-- Resolve the colour scheme before first paint so the page never flashes -->
+  <script>
+    (function() {
+      try {
+        var stored = localStorage.getItem('theme');
+        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
@@ -43,6 +57,7 @@
   <!-- Main CSS -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/sections.css" rel="stylesheet">
+  <link href="assets/css/dark.css" rel="stylesheet">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -79,6 +94,11 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <button type="button" class="bi bi-list mobile-nav-toggle d-xl-none mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar"></button>
+
+  <button type="button" class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false" title="Switch theme">
+    <i class="bi bi-moon-stars-fill" aria-hidden="true"></i>
+    <i class="bi bi-sun-fill" aria-hidden="true"></i>
+  </button>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header">

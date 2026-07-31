@@ -15,6 +15,47 @@ const select = (el, all = false) => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   /**
+   * Colour theme. The inline script in <head> has already applied the stored
+   * or system choice before first paint; this only handles switching.
+   */
+  const themeToggle = select('.theme-toggle')
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme)
+    if (themeToggle) {
+      const dark = theme === 'dark'
+      themeToggle.setAttribute('aria-pressed', dark ? 'true' : 'false')
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme')
+    }
+  }
+
+  applyTheme(document.documentElement.getAttribute('data-theme') || (darkQuery.matches ? 'dark' : 'light'))
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+      applyTheme(next)
+      try {
+        localStorage.setItem('theme', next)
+      } catch (e) {
+        /* private browsing — the choice just won't persist */
+      }
+    })
+  }
+
+  // Keep following the system until the visitor makes an explicit choice
+  darkQuery.addEventListener('change', (e) => {
+    let stored = null
+    try {
+      stored = localStorage.getItem('theme')
+    } catch (err) {
+      /* ignore */
+    }
+    if (!stored) applyTheme(e.matches ? 'dark' : 'light')
+  })
+
+  /**
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {

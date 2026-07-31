@@ -1,0 +1,230 @@
+/*--------------------------------------------------------------
+# dark.css
+# Dark theme for the site. Every rule is scoped to [data-theme="dark"], so the
+# light appearance is byte-for-byte unchanged — remove this file and its <link>
+# and the site simply loses dark mode.
+#
+# The brand red keeps its exact value wherever it is a *fill* (pills, buttons,
+# the timeline rule, the contact panel) so the identity is untouched. Where the
+# red is used as *text* it switches to --accent-text, a lighter tint, because
+# #e31837 on a near-black background only reaches 3.9:1.
+--------------------------------------------------------------*/
+
+[data-theme="dark"] {
+  --surface: #131318;
+  --surface-2: #191920;
+  --surface-3: #20202a;
+  --accent-text: #ff7a89;
+
+  /* Base-theme tokens that are only ever used as text colours */
+  --color-text: #c3c6cd;
+
+  /* sections.css tokens */
+  --line: #2c2c38;
+  --muted: #9aa0ab;
+  --brand-tint: rgba(227, 24, 55, 0.16);
+  --brand-tint-strong: rgba(227, 24, 55, 0.26);
+  --brand-glow: 0 18px 40px rgba(0, 0, 0, 0.45);
+
+  color-scheme: dark;
+}
+
+/*--------------------------------------------------------------
+# Surfaces
+--------------------------------------------------------------*/
+[data-theme="dark"] body {
+  background-color: var(--surface);
+}
+
+[data-theme="dark"] #main {
+  background-color: var(--surface) !important;
+}
+
+[data-theme="dark"] #hero:before,
+[data-theme="dark"] #pre-loader {
+  background: var(--surface);
+}
+
+[data-theme="dark"] #pre-loader:before {
+  border-color: var(--surface-3);
+  border-top-color: var(--color-tertiary);
+}
+
+[data-theme="dark"] #header {
+  background-color: var(--surface-2);
+}
+
+[data-theme="dark"] .section-alt {
+  background: var(--surface-2);
+}
+
+[data-theme="dark"] .tile {
+  background: var(--surface-3);
+}
+
+/* Timeline dot sits on the page, so it takes the page colour */
+[data-theme="dark"] .resume .resume-item::before,
+[data-theme="dark"] .pub::before {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .section-alt .resume-item::before,
+[data-theme="dark"] .section-alt .pub::before {
+  background: var(--surface-2);
+}
+
+/*--------------------------------------------------------------
+# Accent used as text
+--------------------------------------------------------------*/
+[data-theme="dark"] a,
+[data-theme="dark"] #hero h1,
+[data-theme="dark"] #hero p,
+[data-theme="dark"] #hero p span,
+[data-theme="dark"] .section-title h2,
+[data-theme="dark"] .section-kicker,
+[data-theme="dark"] .about .content h3,
+[data-theme="dark"] .about .content ul i,
+[data-theme="dark"] .resume .resume-title,
+[data-theme="dark"] .resume .resume-item h4,
+[data-theme="dark"] #header .profile h1 a,
+[data-theme="dark"] #header .profile h1 a:hover,
+[data-theme="dark"] .nav-menu a:hover i,
+[data-theme="dark"] .nav-menu .active i,
+[data-theme="dark"] .fact-num,
+[data-theme="dark"] .metric b,
+[data-theme="dark"] .pcard h3,
+[data-theme="dark"] .skill-card h3,
+[data-theme="dark"] .award h3,
+[data-theme="dark"] .hero-cue,
+[data-theme="dark"] .tick li::before {
+  color: var(--accent-text);
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--color-tertiary);
+}
+
+[data-theme="dark"] .hero-cue {
+  border-color: var(--accent-text);
+}
+
+[data-theme="dark"] .hero-cue:hover {
+  color: var(--color-primary);
+  background: var(--color-tertiary);
+  border-color: var(--color-tertiary);
+}
+
+[data-theme="dark"] #hero::after {
+  background: radial-gradient(circle, rgba(227, 24, 55, 0.2) 0%, rgba(227, 24, 55, 0) 68%);
+}
+
+[data-theme="dark"] .shining-text {
+  text-shadow: 0 0 18px rgba(227, 24, 55, 0.55);
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+[data-theme="dark"] .nav-menu a,
+[data-theme="dark"] .nav-menu a:focus,
+[data-theme="dark"] .nav-menu a i,
+[data-theme="dark"] .nav-menu a:focus i {
+  color: #8b909c;
+}
+
+[data-theme="dark"] .nav-menu a:hover,
+[data-theme="dark"] .nav-menu .active,
+[data-theme="dark"] .nav-menu li:hover>a {
+  color: var(--color-text);
+}
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+[data-theme="dark"] .chip {
+  color: #ff8f9c;
+}
+
+[data-theme="dark"] .ribbon--quiet {
+  color: #ff8f9c;
+}
+
+[data-theme="dark"] .btn-brand--outline {
+  color: var(--accent-text) !important;
+  border-color: var(--accent-text);
+}
+
+[data-theme="dark"] .btn-brand--outline:hover {
+  color: var(--color-primary) !important;
+  background: var(--color-tertiary);
+  border-color: var(--color-tertiary);
+}
+
+[data-theme="dark"] .skip-link:focus {
+  color: var(--color-primary);
+}
+
+/* The logo files are black artwork on transparency, so they need a plate */
+[data-theme="dark"] .institution-icon {
+  background: #fff;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/*--------------------------------------------------------------
+# Scrollbars
+--------------------------------------------------------------*/
+[data-theme="dark"] * {
+  scrollbar-color: var(--color-tertiary) var(--surface-2);
+}
+
+[data-theme="dark"] *::-webkit-scrollbar {
+  background-color: var(--surface-2) !important;
+}
+
+/*--------------------------------------------------------------
+# Theme toggle — matches the existing fixed circular controls
+--------------------------------------------------------------*/
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9998;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50px;
+  font-size: 19px;
+  line-height: 0;
+  color: var(--color-primary);
+  background-color: var(--color-tertiary);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-tertiary-bright);
+}
+
+/* Sit beside the mobile nav button while that one is visible */
+@media (max-width: 1199px) {
+  .theme-toggle {
+    right: 65px;
+  }
+}
+
+.theme-toggle .bi-sun-fill {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .bi-sun-fill {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .bi-moon-stars-fill {
+  display: none;
+}
