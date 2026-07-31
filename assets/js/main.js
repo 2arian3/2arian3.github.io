@@ -12,6 +12,8 @@ const select = (el, all = false) => {
 (function() {
   "use strict";
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   /**
    * Easy event listener function
    */
@@ -66,7 +68,7 @@ const select = (el, all = false) => {
     let elementPos = select(el).offsetTop
     window.scrollTo({
       top: elementPos,
-      behavior: 'smooth'
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
     })
   }
 
@@ -87,31 +89,38 @@ const select = (el, all = false) => {
   }
 
   /**
-   * Mobile nav toggle
+   * Mobile nav toggle — one place that owns the open/closed state so the body
+   * class, sidebar position, icon and ARIA state can't drift apart.
    */
-  on('click', '.mobile-nav-toggle', function(e) {
-    if (select('body').classList.contains('mobile-nav-active'))
-      headerElement.style.left = '-300px'
-    else
-      headerElement.style.left = 0
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+  const navToggle = select('.mobile-nav-toggle')
+  const isMobileNavOpen = () => select('body').classList.contains('mobile-nav-active')
+  const setMobileNav = (open) => {
+    select('body').classList.toggle('mobile-nav-active', open)
+    headerElement.style.left = open ? '0' : '-300px'
+    if (navToggle) {
+      navToggle.classList.toggle('bi-list', !open)
+      navToggle.classList.toggle('bi-x', open)
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+    }
+  }
+
+  on('click', '.mobile-nav-toggle', () => setMobileNav(!isMobileNavOpen()))
 
   function HideHeader(e) {
-    e.stopPropagation()
-    if (select('body').classList.contains('mobile-nav-active')) {
-      select('#header').style.left = '-300px'
-      select('.mobile-toggle').classList.toggle('bi-list')
-      select('.mobile-toggle').classList.toggle('bi-x')
-      select('body').classList.toggle('mobile-nav-active')
-    }
+    if (e) e.stopPropagation()
+    if (isMobileNavOpen()) setMobileNav(false)
   }
 
   on('click', '#hero', e => HideHeader(e))
 
   on('click', '#main', e => HideHeader(e))
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMobileNavOpen()) {
+      setMobileNav(false)
+      if (navToggle) navToggle.focus()
+    }
+  })
 
   /**
    * Scrool with offset on links with a class name .scrollto
@@ -119,15 +128,7 @@ const select = (el, all = false) => {
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
       e.preventDefault()
-
-      let body = select('body')
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-        headerElement.style.left = '-300px'
-      }
+      HideHeader()
       scrollto(this.hash)
     }
   }, true)
@@ -136,7 +137,8 @@ const select = (el, all = false) => {
    * Scroll with ofset on page load with hash links in the url
    */
   window.addEventListener('load', () => {
-    select('#pre-loader').remove()
+    const preLoader = select('#pre-loader')
+    if (preLoader) preLoader.remove()
     if (window.location.hash) {
       if (select(window.location.hash)) {
         scrollto(window.location.hash)
@@ -151,30 +153,17 @@ const select = (el, all = false) => {
   if (typed) {
     let typed_strings = typed.getAttribute('data-typed-items')
     typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
+    if (prefersReducedMotion) {
+      typed.textContent = typed_strings[0].trim()
+    } else {
+      new Typed('.typed', {
+        strings: typed_strings,
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000
+      });
+    }
   }
 
   /**
@@ -185,22 +174,57 @@ const select = (el, all = false) => {
       duration: 1000,
       easing: 'ease-in-out',
       once: true,
-      mirror: false
+      mirror: false,
+      disable: prefersReducedMotion
     })
   });
 
   /**
-   * Initiate Pure Counter 
+   * Count-up for the highlight figures. The final value is already in the
+   * markup, so the numbers stay correct if this never runs.
    */
-  new PureCounter();
+  const counters = select('.count-up', true)
+  if (counters.length && 'IntersectionObserver' in window && !prefersReducedMotion) {
+    const countUp = (el) => {
+      const target = parseFloat(el.dataset.countTo)
+      const decimals = parseInt(el.dataset.countDecimals || '0', 10)
+      const duration = 1400
+      const started = performance.now()
+
+      const step = (now) => {
+        const progress = Math.min((now - started) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        el.textContent = (target * eased).toFixed(decimals)
+        if (progress < 1) requestAnimationFrame(step)
+        else el.textContent = target.toFixed(decimals)
+      }
+
+      el.textContent = (0).toFixed(decimals)
+      requestAnimationFrame(step)
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          countUp(entry.target)
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.4 })
+
+    counters.forEach((el) => observer.observe(el))
+  }
 
 })()
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  const ageElement = document.getElementById('age');
+  if (!ageElement) return;
+
   const today = new Date();
   const birthDate = new Date('2000-07-09');
-  
+
   let age = today.getFullYear() - birthDate.getFullYear();
   const month = today.getMonth();
 
@@ -208,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
     age--;
   }
 
-  document.getElementById('age').innerText = age;
+  ageElement.innerText = age;
 });
 
 
