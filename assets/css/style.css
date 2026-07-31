@@ -677,3 +677,45 @@ section {
     transform: rotate(360deg);
   }
 }
+
+/*--------------------------------------------------------------
+# Theme Transition Animation
+--------------------------------------------------------------*/
+
+/* Fallback transition for browsers not supporting View Transitions */
+.theme-transitioning,
+.theme-transitioning * {
+  transition: background-color 0.75s ease-in-out,
+              color 0.75s ease-in-out,
+              border-color 0.75s ease-in-out,
+              box-shadow 0.75s ease-in-out !important;
+}
+
+/* View Transitions API Styling (slow fade/dissolve transition) */
+::view-transition-old(root) {
+  animation: fade-out 800ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 800ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  mix-blend-mode: normal;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

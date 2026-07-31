@@ -35,11 +35,28 @@ const select = (el, all = false) => {
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
-      applyTheme(next)
-      try {
-        localStorage.setItem('theme', next)
-      } catch (e) {
-        /* private browsing — the choice just won't persist */
+      
+      const toggleTheme = () => {
+        applyTheme(next)
+        try {
+          localStorage.setItem('theme', next)
+        } catch (err) {
+          /* private browsing — the choice just won't persist */
+        }
+      }
+
+      if (document.startViewTransition && !prefersReducedMotion) {
+        document.startViewTransition(toggleTheme)
+      } else {
+        if (!prefersReducedMotion) {
+          document.documentElement.classList.add('theme-transitioning')
+          toggleTheme()
+          setTimeout(() => {
+            document.documentElement.classList.remove('theme-transitioning')
+          }, 800) // matches transition duration
+        } else {
+          toggleTheme()
+        }
       }
     })
   }
