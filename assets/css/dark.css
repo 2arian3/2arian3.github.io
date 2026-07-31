@@ -164,8 +164,10 @@
   color: var(--color-primary);
 }
 
-/* The logo files are black artwork on transparency, so they need a plate */
-[data-theme="dark"] .institution-icon {
+/* Some logo files are black artwork on transparency and would vanish on a dark
+   background, so those get a white plate. Marks that carry their own
+   background (the app-style company icons) are left alone. */
+[data-theme="dark"] .institution-icon--plate {
   background: #fff;
   padding: 6px;
   border-radius: 8px;

@@ -74,6 +74,19 @@ button:focus-visible {
 }
 
 /*--------------------------------------------------------------
+# Employer / institution marks
+--------------------------------------------------------------*/
+/* Company logos are square app-style marks, so they get a fixed small box.
+   The university wordmarks keep the original 100px treatment. */
+.resume .resume-item .institution-icon--mark {
+  width: 44px;
+  height: 44px;
+  margin: 0 12px 0 0;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/*--------------------------------------------------------------
 # Hero flourishes
 --------------------------------------------------------------*/
 #hero {

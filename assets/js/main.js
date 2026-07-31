@@ -221,6 +221,16 @@ const select = (el, all = false) => {
   });
 
   /**
+   * Employer / institution marks: if a logo file isn't there, drop the image
+   * rather than leaving a broken-image icon next to the employer name.
+   */
+  select('.institution-icon', true).forEach((img) => {
+    const drop = () => img.remove()
+    if (img.complete && img.naturalWidth === 0) drop()
+    else img.addEventListener('error', drop)
+  })
+
+  /**
    * Count-up for the highlight figures. The final value is already in the
    * markup, so the numbers stay correct if this never runs.
    */
