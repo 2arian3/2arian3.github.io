@@ -61,11 +61,14 @@ only reaches 3.9:1 contrast.
 
 ## Theme switching
 
-The visitor's choice is resolved by a small inline script in `<head>` that runs
-before first paint, so there is no flash of the wrong theme on load. It reads
-`localStorage.theme` and falls back to `prefers-color-scheme`. The toggle button
-in the corner writes the choice back to `localStorage`; until someone clicks it,
-the site keeps following the system setting.
+Light is the default. Dark applies only when a visitor has picked it with the
+toggle in the corner, which stores the choice in `localStorage.theme` and is
+remembered on the next visit. The site deliberately does not follow the operating
+system's `prefers-color-scheme`, so someone on a dark-mode machine still lands on
+the light theme first.
+
+A small inline script in `<head>` applies the stored choice before first paint,
+so there is no flash of the wrong theme on load.
 
 Switching is animated with the View Transitions API where the browser supports
 it. Elsewhere it falls back to a `.theme-transitioning` class that cross-fades

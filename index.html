@@ -10,20 +10,20 @@
   <meta content="Arian Boukani" name="author">
   <meta content="Arian Boukani, software engineer, backend engineer, full-stack developer, serverless, distributed systems, OptiServe, PreNeT, CAPE, York University, Toronto, bookani, bokani, arian, boukani, aryan, آریان, بوکانی, آریا, اریان, اریا" name="keywords">
   <meta content="index, follow" name="robots">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://2arian3.github.io/">
 
-  <!-- Resolve the colour scheme before first paint so the page never flashes -->
+  <!-- Apply the colour scheme before first paint so the page never flashes.
+       Light is the default; dark only applies once the visitor picks it. -->
   <script>
     (function() {
+      var theme = 'light';
       try {
-        var stored = localStorage.getItem('theme');
-        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (localStorage.getItem('theme') === 'dark') theme = 'dark';
       } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'light');
+        /* private browsing — fall back to light */
       }
+      document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
 
@@ -441,9 +441,6 @@
                 <a class="link-arrow" href="https://github.com/pacslab/optiserve" target="_blank" rel="noopener">
                   <i class="bi bi-github" aria-hidden="true"></i> View code <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
-                <a class="link-arrow scrollto" href="#publications">
-                  <i class="bi bi-journal-text" aria-hidden="true"></i> Read the paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-                </a>
               </div>
             </article>
           </div>
@@ -701,6 +698,9 @@
                 <a class="link-arrow" href="https://dl.acm.org/doi/pdf/10.1145/3676151.3719373" target="_blank" rel="noopener">
                   <i class="bi bi-file-earmark-text" aria-hidden="true"></i> Read paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
+                <a class="link-arrow" href="https://github.com/pacslab/PreNeT" target="_blank" rel="noopener">
+                  <i class="bi bi-github" aria-hidden="true"></i> View code <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
               </div>
             </div>
 
@@ -711,6 +711,9 @@
               <div class="link-row">
                 <a class="link-arrow" href="https://openreview.net/pdf?id=wGngf0wBYn" target="_blank" rel="noopener">
                   <i class="bi bi-file-earmark-text" aria-hidden="true"></i> Read paper <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+                <a class="link-arrow" href="https://github.com/pacslab/CAPE" target="_blank" rel="noopener">
+                  <i class="bi bi-github" aria-hidden="true"></i> View code <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
