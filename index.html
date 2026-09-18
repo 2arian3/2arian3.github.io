@@ -163,10 +163,12 @@
           <div class="col-lg-8 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-left">
             <h3 style="margin-bottom: 15px;">Software Engineer &mdash; Backend &amp; Full-Stack Systems</h3>
             <p>
-              I've shipped products with React/Next.js, FastAPI, .NET, and Postgres, deployed them on AWS and GCP with
-              CI/CD, and built multi-agent AI systems that route work across specialized model pipelines. I pick up
-              unfamiliar tools quickly under real deadlines &mdash; most recently by shipping production-style demos in
-              24&ndash;48 hour hackathons.
+              At SevenTask, the task-management SaaS I co-founded and grew to 200+ monthly active users, I owned the
+              architecture and the REST API contracts, ran A/B tests to decide what was worth keeping, and led a team of
+              five. On OptiServe I kept the public interface stable through automated testing, CI, and semantic
+              versioning. Since then I've done three hackathon builds, one a top-4 finalist and two deployed from
+              pipelines that shipped every push to a live demo. I work with AI tooling daily too: I review agent-written
+              pull requests at Cohere and build multi-agent systems in Python and TypeScript.
             </p>
             <div class="row">
               <div class="col-lg-6">
@@ -254,7 +256,7 @@
           <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
             <div class="tile tile--fill fact">
               <span class="medallion medallion--square"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
-              <span class="fact-num"><span class="count-up" data-count-to="3">3</span></span>
+              <span class="fact-num"><span class="count-up" data-count-to="5">5</span></span>
               <p class="fact-label">Papers published or under review</p>
             </div>
           </div>
@@ -285,9 +287,8 @@
                 <p style="margin: 0;"><em>Cohere, Self-Employed &mdash; Toronto, Canada (Remote)</em></p>
               </div>
               <ul>
-                <li>Evaluate, annotate, and code-review AI-generated responses across <strong>Python</strong>, <strong>Java</strong>, <strong>SQL</strong>, <strong>JavaScript</strong>, and <strong>HTML</strong> for correctness and strict adherence to task instructions</li>
-                <li>Compare competing model responses and write detailed feedback to improve coding practices and solution quality</li>
-                <li>Apply algorithm design knowledge to craft accurate reference solutions for complex coding prompts</li>
+                <li>Review <strong>pull requests written by coding agents</strong> on software-engineering tasks across <strong>Python</strong>, <strong>Java</strong>, <strong>SQL</strong>, and <strong>JavaScript</strong>, judging whether each diff is correct and actually does what the task asked</li>
+                <li>Evaluate the <strong>reasoning trajectory</strong> behind a run, not only the final diff, and write the technical feedback that goes back into training</li>
               </ul>
             </div>
 
@@ -299,10 +300,10 @@
                 <p style="margin: 0;"><em><a href="https://pacs.eecs.yorku.ca/" target="_blank" rel="noopener">PACS Lab</a>, York University, Full-Time &mdash; Toronto, Canada</em></p>
               </div>
               <ul>
-                <li>Designed, built, and open-sourced <a href="https://github.com/pacslab/optiserve" target="_blank" rel="noopener"><strong>OptiServe</strong></a>, a Python framework that auto-tunes <strong>AWS Lambda + Step Functions</strong> workflows across latency, cost, and accuracy; owned API design, packaging, documentation, and CI</li>
-                <li>Implemented profiling, performance and cost models, and benchmarking infrastructure validated to <strong>99.1% accuracy against live AWS executions</strong> and <strong>99.89% against AWS billing data</strong> across 3,000 warm invocations per workflow &mdash; enabling <strong>what-if analysis</strong> across memory tiers (128 MB&ndash;10 GB) and model variants with zero redeployment or re-profiling</li>
-                <li>Delivered optimization heuristics for an NP-hard configuration-search problem, coming <strong>within 5% of the optimal configuration in 89.6% of 1,250 evaluated problems</strong> across six serverless workflows spanning ResNet, YOLO, and BERT model variants</li>
-                <li>Established the project's engineering workflow: unit and integration test suites, <strong>GitHub Actions CI</strong>, containerized reproducible environments (Docker), and code review with semantic versioning to keep the open-source API stable across releases</li>
+                <li>Designed, built, and open-sourced <a href="https://github.com/pacslab/optiserve" target="_blank" rel="noopener"><strong>OptiServe</strong></a>, a Python framework that programmatically drives the <strong>AWS Lambda and Step Functions APIs</strong> to auto-tune serverless workflows across latency, cost, and accuracy; owned the public <strong>API design</strong>, packaging, documentation, and CI end to end</li>
+                <li>Established the project's engineering workflow: unit and integration tests, <strong>GitHub Actions CI</strong>, reproducible Docker environments, Prometheus monitoring, and code review with <strong>semantic versioning</strong> and API docs that keep the open-source interface stable across releases</li>
+                <li>Implemented profiling, performance and cost models, and benchmarking infrastructure validated to <strong>99.1% accuracy against live AWS executions and 99.89% against AWS billing data</strong> across 3,000 warm invocations per workflow, enabling what-if analysis with no redeployment</li>
+                <li>Delivered optimization heuristics for an NP-hard configuration-search problem, coming <strong>within 5% of the optimal configuration in 89.6% of 1,250 evaluated problems</strong> across six serverless workflows</li>
               </ul>
             </div>
 
@@ -314,10 +315,9 @@
                 <p style="margin: 0;"><em>SevenTask, Full-Time &mdash; Remote</em></p>
               </div>
               <ul>
-                <li>Co-founded a task-management SaaS; designed, built, and deployed the product on a containerized stack, growing it to <strong>200+ monthly active users</strong></li>
-                <li>Architected and built core features end-to-end in <strong>Angular + .NET</strong>: a Kanban board, calendar, <strong>JWT</strong>-based authentication, <strong>WebSocket</strong>-powered real-time chat, and Redis-backed caching</li>
-                <li><strong>Led a team of 5 engineers</strong> through Kanban v1 delivery; ran sprint planning, code review, and pull-request workflows</li>
-                <li>Designed and documented <strong>REST APIs</strong> with Swagger/OpenAPI; instrumented A/B tests and feedback loops to validate releases</li>
+                <li>Designed and documented the product's <strong>REST APIs</strong> with <strong>Swagger/OpenAPI</strong> as the written contract between the Angular client and the .NET backend; instrumented A/B tests and feedback loops to validate releases</li>
+                <li>Architected, built, and deployed the product end-to-end in <strong>Angular + .NET</strong> on a containerized stack, growing it to <strong>200+ monthly active users</strong>: a Kanban board, calendar, <strong>JWT</strong> authentication, <strong>WebSocket</strong>-powered real-time chat, and Redis-backed caching</li>
+                <li><strong>Led and mentored a team of 5 engineers</strong> through Kanban v1 delivery; ran sprint planning, code review, and pull-request workflows</li>
               </ul>
               <div class="link-row">
                 <a class="link-arrow" href="https://www.youtube.com/watch?v=-p_LuSwFF7s" target="_blank" rel="noopener">
@@ -392,7 +392,7 @@
         <div class="section-title">
           <span class="section-kicker">What I've built</span>
           <h2 id="projects-heading">Selected Projects</h2>
-          <p>An open-source research framework and two hackathon products, each shipped end to end.</p>
+          <p>An open-source research framework and three hackathon products, each shipped end to end.</p>
         </div>
 
         <div class="row g-4">
@@ -426,14 +426,14 @@
 
               <ul class="tick">
                 <li>Sweeps <strong>AWS Lambda + Step Functions</strong> configurations from 128&nbsp;MB to 10&nbsp;GB, benchmarked across six workflows spanning ResNet, YOLO, and BERT variants</li>
-                <li>Published as a documented, semantically versioned package with unit and integration test suites, GitHub Actions CI, and Docker-based reproducible environments</li>
+                <li>Published as a documented, semantically versioned package with unit and integration test suites, GitHub Actions CI, Prometheus monitoring, and Docker-based reproducible environments</li>
               </ul>
 
               <ul class="chip-list">
                 <li class="chip">Python</li>
                 <li class="chip">AWS Lambda</li>
                 <li class="chip">Step Functions</li>
-                <li class="chip">PyTorch</li>
+                <li class="chip">Prometheus</li>
                 <li class="chip">Docker</li>
                 <li class="chip">GitHub Actions</li>
               </ul>
@@ -446,9 +446,46 @@
             </article>
           </div>
 
+          <div class="col-12" data-aos="fade-up">
+            <article class="tile pcard">
+              <span class="pcard-index" aria-hidden="true">02</span>
+              <div class="pcard-head">
+                <span class="medallion"><i class="bi bi-telephone-outbound" aria-hidden="true"></i></span>
+                <div>
+                  <h3>Realest</h3>
+                  <span class="pcard-tag">AI Tinkerers Agentic Hackathon &middot; Toronto</span>
+                </div>
+              </div>
+              <p class="pcard-lead">
+                A voice agent that phones rental listing agents on a renter's behalf, built at the OpenAI-sponsored
+                AI Tinkerers Agentic Hackathon.
+              </p>
+              <ul class="tick">
+                <li>Architected the backend: a <strong>FastAPI</strong> service whose <strong>webhook</strong> tools are the only writer to one session store, with a <strong>Next.js</strong> page polling that same state so a live phone call and the screen never disagree</li>
+                <li>Designed the transport seam every tool call routes through, so the whole product ran over a <strong>text harness</strong> while telephony was still being wired, and swapping scripted calls for real <strong>Twilio</strong> ones is a single environment variable</li>
+                <li>Owned inbound session handling (one session id per call so every webhook landed in the same session, plus an <strong>SMS</strong> link to a live shortlist), listing ingestion, and the <strong>GitHub Actions</strong> deploy to a VM serving the app behind FastAPI</li>
+              </ul>
+              <ul class="chip-list">
+                <li class="chip">FastAPI</li>
+                <li class="chip">Next.js</li>
+                <li class="chip">Twilio</li>
+                <li class="chip">Webhooks</li>
+                <li class="chip">GitHub Actions</li>
+              </ul>
+              <div class="link-row">
+                <a class="link-arrow" href="https://github.com/AamelAI/realest" target="_blank" rel="noopener">
+                  <i class="bi bi-github" aria-hidden="true"></i> View code <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+                <a class="link-arrow" href="https://youtu.be/A5do1Vd4TgI" target="_blank" rel="noopener">
+                  <i class="bi bi-play-btn" aria-hidden="true"></i> Watch the demo <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
           <div class="col-lg-6" data-aos="fade-up">
             <article class="tile tile--fill pcard">
-              <span class="pcard-index" aria-hidden="true">02</span>
+              <span class="pcard-index" aria-hidden="true">03</span>
               <div class="pcard-head">
                 <span class="medallion"><i class="bi bi-basket" aria-hidden="true"></i></span>
                 <div>
@@ -460,14 +497,15 @@
                 A full-stack supply-chain copilot for bakeries, built at the Toronto Machine Learning Summit.
               </p>
               <ul class="tick">
-                <li>A multi-agent <strong>LangGraph</strong> service routing to 5 domain agents, with human-in-the-loop action cards gating every commit</li>
+                <li>A multi-agent <strong>LangGraph</strong> service using <strong>Claude</strong>, with human-in-the-loop action cards gating every commit</li>
                 <li><strong>REST</strong> and <strong>SSE</strong> contracts between a <strong>Next.js 15</strong> frontend and a <strong>FastAPI</strong> backend on <strong>PostgreSQL with pgvector</strong></li>
-                <li>Containerized with Docker on a <strong>GCP VM</strong>, behind a CI/CD pipeline that ships every push to a live demo</li>
+                <li>Deployed on a <strong>GCP VM</strong> behind a CI/CD pipeline that ships every push to a live demo</li>
               </ul>
               <ul class="chip-list">
                 <li class="chip">Next.js 15</li>
                 <li class="chip">FastAPI</li>
                 <li class="chip">LangGraph</li>
+                <li class="chip">Claude</li>
                 <li class="chip">PostgreSQL</li>
                 <li class="chip">pgvector</li>
                 <li class="chip">SSE</li>
@@ -483,7 +521,7 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <article class="tile tile--fill pcard">
-              <span class="pcard-index" aria-hidden="true">03</span>
+              <span class="pcard-index" aria-hidden="true">04</span>
               <div class="pcard-head">
                 <span class="medallion"><i class="bi bi-heart-pulse" aria-hidden="true"></i></span>
                 <div>
@@ -492,20 +530,20 @@
                 </div>
               </div>
               <p class="pcard-lead">
-                An on-device home-emergency assistant for elderly care that keeps every byte of health data at the edge.
+                An on-device home-emergency assistant, built so health data never leaves the edge.
               </p>
               <ul class="tick">
                 <li>A multi-agent <strong>FastAPI + LangGraph</strong> backend routing to 6 specialist services, with a weighted risk monitor scoring live vitals into severity tiers</li>
-                <li>A <strong>Twilio</strong> integration that automatically places a 911 call on a confirmed fall</li>
-                <li>A real-time voice pipeline (faster-whisper, LangGraph, Kokoro TTS) streamed over SSE to a <strong>Wear OS</strong> watch, running on <strong>TensorRT</strong> on an NVIDIA DGX Spark</li>
+                <li>An automated <strong>Twilio</strong> 911 call on a confirmed fall: a write path into an external system on a safety-critical trigger</li>
+                <li>Benchmarked <strong>vLLM</strong>, <strong>SGLang</strong>, and <strong>TensorRT</strong> for on-device serving of a 30B-parameter reasoning model, then quantized to <strong>NVFP4</strong> and shipped on TensorRT for the best sustained throughput</li>
               </ul>
               <ul class="chip-list">
                 <li class="chip">FastAPI</li>
                 <li class="chip">LangGraph</li>
-                <li class="chip">TensorRT</li>
-                <li class="chip">Next.js</li>
-                <li class="chip">Wear OS</li>
                 <li class="chip">Twilio</li>
+                <li class="chip">vLLM</li>
+                <li class="chip">SGLang</li>
+                <li class="chip">TensorRT</li>
               </ul>
               <div class="link-row">
                 <a class="link-arrow" href="https://github.com/Angel-Guardians/Guardians" target="_blank" rel="noopener">
@@ -530,18 +568,16 @@
         </div>
 
         <div class="row g-4">
-
           <div class="col-md-6 col-xl-4" data-aos="fade-up">
             <div class="tile tile--fill skill-card">
               <span class="medallion"><i class="bi bi-code-slash" aria-hidden="true"></i></span>
               <h3>Languages</h3>
               <ul class="chip-list">
                 <li class="chip">Python</li>
-                <li class="chip">JavaScript</li>
                 <li class="chip">TypeScript</li>
-                <li class="chip">Go</li>
+                <li class="chip">JavaScript</li>
                 <li class="chip">Java</li>
-                <li class="chip">C / C++</li>
+                <li class="chip">C++</li>
                 <li class="chip">SQL</li>
               </ul>
             </div>
@@ -549,92 +585,82 @@
 
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="50">
             <div class="tile tile--fill skill-card">
-              <span class="medallion"><i class="bi bi-hdd-network" aria-hidden="true"></i></span>
-              <h3>Backend &amp; APIs</h3>
+              <span class="medallion"><i class="bi bi-plug" aria-hidden="true"></i></span>
+              <h3>APIs &amp; Integrations</h3>
               <ul class="chip-list">
-                <li class="chip">REST</li>
-                <li class="chip">Microservices</li>
-                <li class="chip">Event-Driven Architecture</li>
-                <li class="chip">FastAPI</li>
-                <li class="chip">.NET</li>
-                <li class="chip">Swagger / OpenAPI</li>
-                <li class="chip">WebSockets</li>
+                <li class="chip">REST API Design</li>
+                <li class="chip">OpenAPI / Swagger</li>
+                <li class="chip">Webhooks</li>
                 <li class="chip">SSE</li>
-                <li class="chip">Auth (JWT)</li>
+                <li class="chip">WebSockets</li>
+                <li class="chip">JWT</li>
+                <li class="chip">Twilio</li>
               </ul>
             </div>
           </div>
 
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
             <div class="tile tile--fill skill-card">
-              <span class="medallion"><i class="bi bi-cloud" aria-hidden="true"></i></span>
-              <h3>Cloud &amp; DevOps</h3>
+              <span class="medallion"><i class="bi bi-layers" aria-hidden="true"></i></span>
+              <h3>Frameworks</h3>
               <ul class="chip-list">
-                <li class="chip">GCP</li>
-                <li class="chip">AWS Lambda</li>
-                <li class="chip">Step Functions</li>
-                <li class="chip">S3</li>
-                <li class="chip">CloudWatch</li>
-                <li class="chip">Docker</li>
-                <li class="chip">Kubernetes</li>
-                <li class="chip">GitHub Actions</li>
-                <li class="chip">Linux</li>
+                <li class="chip">FastAPI</li>
+                <li class="chip">.NET</li>
+                <li class="chip">Next.js / React</li>
+                <li class="chip">Angular</li>
               </ul>
             </div>
           </div>
 
           <div class="col-md-6 col-xl-4" data-aos="fade-up">
             <div class="tile tile--fill skill-card">
-              <span class="medallion"><i class="bi bi-database" aria-hidden="true"></i></span>
-              <h3>Databases &amp; Caching</h3>
+              <span class="medallion"><i class="bi bi-robot" aria-hidden="true"></i></span>
+              <h3>AI &amp; LLM Systems</h3>
               <ul class="chip-list">
-                <li class="chip">PostgreSQL</li>
-                <li class="chip">pgvector</li>
-                <li class="chip">Redis</li>
+                <li class="chip">LangGraph</li>
+                <li class="chip">Multi-Agent Orchestration</li>
+                <li class="chip">RAG (pgvector)</li>
+                <li class="chip">Claude &amp; OpenAI APIs</li>
+                <li class="chip">Structured Outputs</li>
+                <li class="chip">vLLM</li>
+                <li class="chip">SGLang</li>
+                <li class="chip">TensorRT</li>
               </ul>
             </div>
           </div>
 
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="50">
             <div class="tile tile--fill skill-card">
-              <span class="medallion"><i class="bi bi-window" aria-hidden="true"></i></span>
-              <h3>Frontend</h3>
+              <span class="medallion"><i class="bi bi-cloud" aria-hidden="true"></i></span>
+              <h3>Cloud &amp; Data</h3>
               <ul class="chip-list">
-                <li class="chip">React</li>
-                <li class="chip">Next.js</li>
-                <li class="chip">Angular</li>
+                <li class="chip">AWS Lambda</li>
+                <li class="chip">Step Functions</li>
+                <li class="chip">GCP</li>
+                <li class="chip">Docker</li>
+                <li class="chip">GitHub Actions (CI/CD)</li>
+                <li class="chip">PostgreSQL</li>
+                <li class="chip">Redis</li>
+                <li class="chip">Prometheus</li>
               </ul>
             </div>
           </div>
 
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
             <div class="tile tile--fill skill-card">
-              <span class="medallion"><i class="bi bi-robot" aria-hidden="true"></i></span>
-              <h3>AI-Assisted Dev</h3>
+              <span class="medallion"><i class="bi bi-check2-square" aria-hidden="true"></i></span>
+              <h3>Practices</h3>
               <ul class="chip-list">
-                <li class="chip">Claude Code</li>
-                <li class="chip">ChatGPT</li>
-                <li class="chip">Prompt Engineering</li>
-                <li class="chip">Reviewing AI-Generated Code</li>
-                <li class="chip">Agentic Workflows</li>
+                <li class="chip">Unit &amp; Integration Testing</li>
+                <li class="chip">Code Review</li>
+                <li class="chip">API Documentation &amp; Versioning</li>
+                <li class="chip">A/B Testing &amp; Experimentation</li>
+                <li class="chip">Agile Delivery</li>
               </ul>
             </div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-aos="fade-up">
-            <div class="tile tile--fill skill-card">
-              <span class="medallion"><i class="bi bi-cpu" aria-hidden="true"></i></span>
-              <h3>Applied ML</h3>
-              <ul class="chip-list">
-                <li class="chip">PyTorch</li>
-                <li class="chip">LangGraph</li>
-                <li class="chip">Pandas</li>
-                <li class="chip">NumPy</li>
-              </ul>
-            </div>
-          </div>
-
         </div>
+
       </div>
     </section><!-- End Skills -->
 
@@ -688,6 +714,7 @@
                 </a>
               </div>
             </div>
+            <p class="pub-note">Two further papers are currently under review.</p>
           </div>
 
           <div class="col-lg-5 pt-4 pt-lg-0" data-aos="fade-left">
@@ -701,6 +728,13 @@
             </div>
 
             <h3 class="resume-title" style="margin-top: 0;">Awards</h3>
+            <div class="tile award" style="margin-bottom: 20px;">
+              <span class="medallion"><i class="bi bi-mortarboard" aria-hidden="true"></i></span>
+              <div>
+                <h3>Best Thesis Award Nominee</h3>
+                <p>York University, for the MSc thesis on <a href="https://yorkspace.library.yorku.ca/server/api/core/bitstreams/b0190194-e23a-4f2f-8e28-925748f68c56/content" target="_blank" rel="noopener">OptiServe</a>.</p>
+              </div>
+            </div>
             <div class="tile award" style="margin-bottom: 20px;">
               <span class="medallion"><i class="bi bi-trophy" aria-hidden="true"></i></span>
               <div>

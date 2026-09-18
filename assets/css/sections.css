@@ -567,6 +567,15 @@ button:focus-visible {
   color: var(--muted);
 }
 
+/* Trailing note under the timeline, aligned with the entries' text */
+.pub-note {
+  margin: 22px 0 0 26px;
+  font-size: 14.5px;
+  font-style: italic;
+  text-align: left;
+  color: var(--muted);
+}
+
 /*--------------------------------------------------------------
 # Awards & talks
 --------------------------------------------------------------*/
